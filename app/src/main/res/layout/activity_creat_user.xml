@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    tools:context=".CreatUserActivity">
+
+
+    <Button
+        android:id="@+id/fh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:text="返回"
+        android:textColor="#00BCD4"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="新用户注册"
+        android:textSize="35dp"
+        android:textStyle="bold" />
+
+    <ScrollView
+        android:id="@+id/sv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/zc"
+        android:layout_below="@+id/tv"
+        android:layout_marginBottom="20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="30dp"
+                    android:text="用户名: "
+                    android:textSize="15dp"
+                    android:gravity="center_vertical"
+
+
+                    />
+
+                <EditText
+                    android:id="@+id/newusername"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginRight="40dp"
+                    android:background="#ffffff"
+                    android:hint="请输入用户名"
+                    android:textSize="15dp"
+                    android:gravity="center_vertical"
+                    android:inputType="text"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="30dp"
+                    android:text="性   别: "
+                    android:textSize="15dp"
+                    android:gravity="center_vertical"
+
+                    />
+
+                <RadioGroup
+                    android:id="@+id/newsex"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginRight="40dp"
+                    android:background="#ffffff"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/radio1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:checked="true"
+                        android:text="男"
+                        android:textSize="15dp"
+                        android:gravity="center_vertical"/>
+
+                    <RadioButton
+                        android:id="@+id/radio2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="女"
+                        android:textSize="15dp"
+                        android:gravity="center_vertical"
+                        />
+
+                </RadioGroup>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="30dp"
+                    android:text="输入密码: "
+                    android:textSize="15dp"
+                    android:gravity="center_vertical"
+
+                    />
+
+                <EditText
+                    android:id="@+id/newmm1"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginRight="40dp"
+                    android:background="#ffffff"
+                    android:hint="请输入密码"
+                    android:textSize="15dp"
+                    android:gravity="center_vertical"
+                    android:inputType="textPassword"/>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="30dp"
+                    android:text="确认密码: "
+                    android:textSize="15dp"
+                    android:gravity="center_vertical"
+
+                    />
+
+                <EditText
+                    android:id="@+id/newmm2"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginRight="40dp"
+                    android:background="#ffffff"
+                    android:hint="请确认密码"
+                    android:textSize="15dp"
+                    android:gravity="center_vertical"
+                    android:inputType="textPassword"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="30dp"
+                    android:text="电话: "
+                    android:textSize="15dp"
+                    android:gravity="center_vertical"
+
+                    />
+
+                <EditText
+                    android:id="@+id/newtel"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginRight="40dp"
+                    android:background="#ffffff"
+                    android:hint="请输入电话号码"
+                    android:textSize="15dp"
+                    android:gravity="center_vertical"
+                    android:inputType="number"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="30dp"
+                    android:text="密保问题: "
+                    android:textSize="15dp"
+                    android:gravity="center_vertical"
+
+                    />
+
+                <EditText
+                    android:id="@+id/newquest"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginRight="40dp"
+                    android:background="#ffffff"
+                    android:hint="请输入问题"
+                    android:textSize="15dp"
+                    android:gravity="center_vertical"
+                    android:inputType="text"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="30dp"
+                    android:text="问题答案: "
+                    android:textSize="15dp"
+                    android:gravity="center_vertical"
+
+                    />
+
+                <EditText
+                    android:id="@+id/newansower"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginRight="40dp"
+                    android:background="#ffffff"
+                    android:hint="请输入答案"
+                    android:textSize="15dp"
+                    android:gravity="center_vertical"
+                    android:inputType="text"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="30dp"
+                    android:text="常用地址: "
+                    android:textSize="15dp"
+                    android:gravity="center_vertical"
+
+                    />
+
+                <EditText
+                    android:id="@+id/newaddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="40dp"
+                    android:background="#ffffff"
+                    android:hint="请输入地址"
+                    android:textSize="15dp"
+                    android:gravity="center_vertical"
+                    />
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+    <Button
+        android:id="@+id/zc"
+        android:layout_width="361dp"
+        android:layout_height="63dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginBottom="50dp"
+        android:background="#FF9800"
+        android:text="注册"
+        android:textColor="#ffffff"
+        android:textSize="30dp" />
+
+</RelativeLayout>
