@@ -55,13 +55,19 @@
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/home_indicator"
+        app:tabMode="scrollable"
         android:layout_width="wrap_content"
         android:layout_height="30dp"
+        android:background="@color/colorPrimary"
+        app:tabTextColor="#ffffff"
         />
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/home_pager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:overScrollMode="never"
+        android:layout_height="match_parent"
+
+        />
 
 
 </LinearLayout>

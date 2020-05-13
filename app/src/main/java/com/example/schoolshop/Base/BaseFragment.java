@@ -18,7 +18,7 @@ public abstract class BaseFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootview = loadRootView(inflater,container,savedInstanceState);
-        mbind = ButterKnife.bind(this,rootview);
+        mbind= ButterKnife.bind(this,rootview);
         initView(rootview);
         initPresenter();
         loadDate();
@@ -26,21 +26,15 @@ public abstract class BaseFragment extends Fragment {
     }
 
     protected void initView(View rootview) {
-
     }
 
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        if (mbind != null){
-            mbind.unbind();
-        }
-        release();
-    }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
+        if (mbind != null){
+            mbind.unbind();
+        }
         release();
     }
 

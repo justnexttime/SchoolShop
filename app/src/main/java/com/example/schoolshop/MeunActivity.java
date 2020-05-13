@@ -8,6 +8,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.Unbinder;
 
 import android.view.MenuItem;
 import android.widget.FrameLayout;
@@ -28,16 +29,23 @@ public class MeunActivity  extends FragmentActivity {
     ShopcarFragment shopcarFragment;
     MeFragment meFragment;
     FragmentManager fm;
-
+   private Unbinder mbind;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_meun);
-        ButterKnife.bind(this);
+        mbind = ButterKnife.bind(this);
         initFragment();
         initListend();
 
+    }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if(mbind!=null){
+            mbind.unbind();
+        }
     }
 
     private void initFragment() {
