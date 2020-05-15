@@ -90,4 +90,11 @@ public class HomeFragment extends BaseFragment implements IHomeCallback {
             mhomePresenterimpl.unregisterCallback(this);
         }
     }
+
+    @Override
+    protected void onRetryClick() {
+        if(mhomePresenterimpl!=null){
+            mhomePresenterimpl.getGoodskinds();
+        }
+    }
 }

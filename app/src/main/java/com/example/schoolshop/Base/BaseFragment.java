@@ -13,7 +13,9 @@ import com.example.schoolshop.R;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import butterknife.Unbinder;
 
 public abstract class BaseFragment extends Fragment {
@@ -30,12 +32,20 @@ public abstract class BaseFragment extends Fragment {
 
     private FrameLayout mbaseContainer;
 
+    @OnClick(R.id.network_error)
+    public void retry(){
+        //点击重试图片
+        onRetryClick();
+    }
+
+    protected void onRetryClick() {
+
+    }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootview =  loadRootView(inflater,container,savedInstanceState);
-
         mbaseContainer = rootview.findViewById(R.id.base_container);
         loadStateView(inflater,container,savedInstanceState);
         mbind= ButterKnife.bind(this,rootview);
