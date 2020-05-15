@@ -34,7 +34,8 @@ public abstract class BaseFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootview = inflater.inflate(R.layout.base_fragment_layout,container,false);
+        View rootview =  loadRootView(inflater,container,savedInstanceState);
+
         mbaseContainer = rootview.findViewById(R.id.base_container);
         loadStateView(inflater,container,savedInstanceState);
         mbind= ButterKnife.bind(this,rootview);
@@ -42,6 +43,10 @@ public abstract class BaseFragment extends Fragment {
         initPresenter();
         loadDate();
         return rootview;
+    }
+
+    protected View loadRootView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        return  inflater.inflate(R.layout.base_fragment_layout,container,false);
     }
 
     //加载各种状态
