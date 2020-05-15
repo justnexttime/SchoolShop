@@ -29,6 +29,9 @@ public class HomePresenterimpl implements IHomePresenter {
 
     @Override
     public void getGoodskinds() {
+        if (mCallback!=null){
+            mCallback.onLoading();
+        }
         //加载分类数据
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("http://120.79.198.138:8084/")
@@ -48,8 +51,16 @@ public class HomePresenterimpl implements IHomePresenter {
                         for (int i = 0; i<gklist1.size();i++){
                             gklist2.add(gklist1.get(i).getGoodskind());
                         }
+
                         if(mCallback!=null){
-                            mCallback.onGoodskindLoaded(gklist2);
+                            if (gklist1 == null|| gklist1.size() ==0 ){
+                                mCallback.onEmpty();
+                            }else{
+
+                                mCallback.onGoodskindLoaded(gklist2);
+                            }
+
+
                         }
 
                         Log.d("kinds","result--->"+gklist2.toString());
@@ -57,6 +68,8 @@ public class HomePresenterimpl implements IHomePresenter {
                     e.printStackTrace();
                 }
                 }else{
+
+                    mCallback.onNetworkError();
                     Log.d("kinds","resutl-->请求失败");
                 }
             }
@@ -64,6 +77,7 @@ public class HomePresenterimpl implements IHomePresenter {
             @Override
             public void onFailure(Call<ResponseBody> call, Throwable t) {
                 Log.d("kinds",t.toString());
+                mCallback.onNetworkError();
             }
         });
 

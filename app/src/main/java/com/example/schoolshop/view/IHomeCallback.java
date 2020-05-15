@@ -8,4 +8,10 @@ import java.util.List;
 public interface IHomeCallback {
 
     void onGoodskindLoaded(ArrayList<String> gklist);
+
+    void onNetworkError();
+
+    void onLoading();
+
+    void  onEmpty();
 }

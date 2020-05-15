@@ -54,9 +54,25 @@ public class HomeFragment extends BaseFragment implements IHomeCallback {
 
     @Override
     public void onGoodskindLoaded(ArrayList<String> gklist) {
+        setUpState(State.SUCCESS);
         //加载的数据回来
         homePagerAdapter.setgoodkinds(gklist);
         Log.d("gklist","call--->"+gklist.toString());
+    }
+
+    @Override
+    public void onNetworkError() {
+        setUpState(State.ERROR);
+    }
+
+    @Override
+    public void onLoading() {
+        setUpState(State.LOADING);
+    }
+
+    @Override
+    public void onEmpty() {
+        setUpState(State.EMPTY);
     }
 
     @Override
