@@ -26,7 +26,9 @@ public class HomePagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        homePagerFragment = new HomePagerFragment();
+        String title = gklist1.get(position);
+        homePagerFragment = HomePagerFragment.newInstance(title);
+
         return homePagerFragment;
     }
 
