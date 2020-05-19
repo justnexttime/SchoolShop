@@ -51,7 +51,7 @@ public class HomeFragment extends BaseFragment implements IHomeCallback {
     protected void initPresenter() {
         //创建Presenter
         mhomePresenterimpl = new HomePresenterimpl();
-        mhomePresenterimpl.registerCallback(this);
+        mhomePresenterimpl.registerViewCallback(this);
     }
 
     @Override
@@ -87,7 +87,7 @@ public class HomeFragment extends BaseFragment implements IHomeCallback {
     protected void release() {
         //取消回调注册
         if(mhomePresenterimpl!=null){
-            mhomePresenterimpl.unregisterCallback(this);
+            mhomePresenterimpl.unregisterViewCallback(this);
         }
     }
 

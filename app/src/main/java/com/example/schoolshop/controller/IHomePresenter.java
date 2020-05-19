@@ -1,8 +1,9 @@
 package com.example.schoolshop.controller;
 
+import com.example.schoolshop.Base.IBasePresenter;
 import com.example.schoolshop.view.IHomeCallback;
 
-public interface IHomePresenter {
+public interface IHomePresenter extends IBasePresenter<IHomeCallback> {
     /*
     *获取商品分类
     * */
@@ -11,10 +12,8 @@ public interface IHomePresenter {
     /*
      *注册ui
      */
-    void registerCallback(IHomeCallback iHomeCallback);
 
     /*
     * 释放ui注册
     */
-    void unregisterCallback(IHomeCallback iHomeCallback);
 }
