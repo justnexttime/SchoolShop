@@ -3,6 +3,7 @@ package com.example.schoolshop.controller.impl;
 
 import android.util.Log;
 
+import com.example.schoolshop.controller.IHomePresenter;
 import com.example.schoolshop.entity.API;
 import com.example.schoolshop.entity.Goodskind;
 import com.example.schoolshop.view.IHomeCallback;

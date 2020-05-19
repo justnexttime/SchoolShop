@@ -1,4 +1,4 @@
-package com.example.schoolshop.controller.impl;
+package com.example.schoolshop.controller;
 
 import com.example.schoolshop.view.IHomeCallback;
 

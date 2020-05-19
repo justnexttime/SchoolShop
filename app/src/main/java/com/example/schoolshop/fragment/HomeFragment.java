@@ -11,7 +11,7 @@ import com.example.schoolshop.Base.BaseFragment;
 import com.example.schoolshop.R;
 import com.example.schoolshop.adapter.HomePagerAdapter;
 import com.example.schoolshop.controller.impl.HomePresenterimpl;
-import com.example.schoolshop.controller.impl.IHomePresenter;
+import com.example.schoolshop.controller.IHomePresenter;
 import com.example.schoolshop.view.IHomeCallback;
 import com.google.android.material.tabs.TabLayout;
 
