@@ -7,4 +7,5 @@ import retrofit2.http.GET;
 public interface API {
     @GET("SchoolShop/GoodskindServlet")
     Call<ResponseBody> getjson();
+
 }
