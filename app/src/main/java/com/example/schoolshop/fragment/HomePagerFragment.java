@@ -6,18 +6,28 @@ import android.view.View;
 
 import com.example.schoolshop.Base.BaseFragment;
 import com.example.schoolshop.R;
+import com.example.schoolshop.adapter.HomePagerContentAdapter;
 import com.example.schoolshop.controller.IGoodsPagerPresenter;
 import com.example.schoolshop.controller.impl.GoodsPagerPresenterImpl;
 import com.example.schoolshop.entity.Goods;
 import com.example.schoolshop.view.IGoodsPagerCallback;
 
-import java.util.ArrayList;
+import java.util.List;
+
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import butterknife.BindView;
 
 import static com.example.schoolshop.utils.Constants.KEY_HOME_PAGER_TITLE;
 
 public class HomePagerFragment extends BaseFragment implements IGoodsPagerCallback {
 
     private IGoodsPagerPresenter mgoodsPagerPresenter;
+    private String title;
+
+    @BindView(R.id.home_pager_list)
+    public RecyclerView mContentList;
+    private HomePagerContentAdapter homePagerContentAdapter;
 
     public static HomePagerFragment newInstance(String title) {
         HomePagerFragment homePagerFragment = new HomePagerFragment();
@@ -34,7 +44,12 @@ public class HomePagerFragment extends BaseFragment implements IGoodsPagerCallba
 
     @Override
     protected void initView(View rootview) {
-        setUpState(State.SUCCESS);
+        //设置布局管理器
+        mContentList.setLayoutManager(new LinearLayoutManager(getContext()));
+        //创建适配器
+        homePagerContentAdapter = new HomePagerContentAdapter();
+        //
+        mContentList.setAdapter(homePagerContentAdapter);
     }
 
     @Override
@@ -46,8 +61,8 @@ public class HomePagerFragment extends BaseFragment implements IGoodsPagerCallba
     @Override
     protected void loadDate() {
         Bundle arguments = getArguments();
-        String title =  arguments.getString(KEY_HOME_PAGER_TITLE);
-        Log.d("title","title---->"+title);
+        title = arguments.getString(KEY_HOME_PAGER_TITLE);
+        Log.d("title","title---->"+ title);
         //加载title查到的数据
         if (mgoodsPagerPresenter!=null) {
             mgoodsPagerPresenter.getGoodsByTitle(title);
@@ -55,37 +70,46 @@ public class HomePagerFragment extends BaseFragment implements IGoodsPagerCallba
     }
 
     @Override
-    public void onContentload(ArrayList<Goods> content) {
+    public void onContentload(List<Goods> content) {
+        //数据加载
+        //TODO:更新ui
+        homePagerContentAdapter.setDate(content);
+        setUpState(State.SUCCESS);
+    }
+
+    @Override
+    public String titleget() {
+        return title;
+    }
+
+    @Override
+    public void onLoading() {
+        setUpState(State.LOADING);
+    }
+
+    @Override
+    public void onNetworkError() {
+        setUpState(State.ERROR);
+    }
+
+    @Override
+    public void onEmpty() {
+        setUpState(State.EMPTY);
+    }
+
+    @Override
+    public void onLoadMoreLoaded(List<Goods> content) {
+
+    }
+
+
+    @Override
+    public void onLoadMoreError() {
 
     }
 
     @Override
-    public void onLoading(String title) {
-
-    }
-
-    @Override
-    public void onError(String title) {
-
-    }
-
-    @Override
-    public void onEmpty(String title) {
-
-    }
-
-    @Override
-    public void onLoadMoreLoaded(ArrayList<Goods> content) {
-
-    }
-
-    @Override
-    public void onLoadMoreError(String title) {
-
-    }
-
-    @Override
-    public void onLoadMoreEmpty(String title) {
+    public void onLoadMoreEmpty() {
 
     }
 

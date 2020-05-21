@@ -2,67 +2,77 @@ package com.example.schoolshop.entity;
 
 public class Goods {
 
-    String  Goodid;
-    String  GoodName;
-    String  GoodImg;
-    String  GoodPrice;
-    String  GoodUser;
-    String  GoodState;
-    String  GoodKind;
+    /**
+     * goodsImg : 1
+     * goodsUser : 123
+     * goodsKind : 文具
+     * goodsState : 1
+     * goodsPrice : 5
+     * ID : 6
+     * goodsName : 钢笔
+     */
 
-    public String getGoodid() {
-        return Goodid;
+    private String goodsImg;
+    private String goodsUser;
+    private String goodsKind;
+    private int goodsState;
+    private int goodsPrice;
+    private int ID;
+    private String goodsName;
+
+    public String getGoodsImg() {
+        return goodsImg;
     }
 
-    public void setGoodid(String goodid) {
-        Goodid = goodid;
+    public void setGoodsImg(String goodsImg) {
+        this.goodsImg = goodsImg;
     }
 
-    public String getGoodName() {
-        return GoodName;
+    public String getGoodsUser() {
+        return goodsUser;
     }
 
-    public void setGoodName(String goodName) {
-        GoodName = goodName;
+    public void setGoodsUser(String goodsUser) {
+        this.goodsUser = goodsUser;
     }
 
-    public String getGoodImg() {
-        return GoodImg;
+    public String getGoodsKind() {
+        return goodsKind;
     }
 
-    public void setGoodImg(String goodImg) {
-        GoodImg = goodImg;
+    public void setGoodsKind(String goodsKind) {
+        this.goodsKind = goodsKind;
     }
 
-    public String getGoodPrice() {
-        return GoodPrice;
+    public int getGoodsState() {
+        return goodsState;
     }
 
-    public void setGoodPrice(String goodPrice) {
-        GoodPrice = goodPrice;
+    public void setGoodsState(int goodsState) {
+        this.goodsState = goodsState;
     }
 
-    public String getGoodUser() {
-        return GoodUser;
+    public int getGoodsPrice() {
+        return goodsPrice;
     }
 
-    public void setGoodUser(String goodUser) {
-        GoodUser = goodUser;
+    public void setGoodsPrice(int goodsPrice) {
+        this.goodsPrice = goodsPrice;
     }
 
-    public String getGoodState() {
-        return GoodState;
+    public int getID() {
+        return ID;
     }
 
-    public void setGoodState(String goodState) {
-        GoodState = goodState;
+    public void setID(int ID) {
+        this.ID = ID;
     }
 
-    public String getGoodKind() {
-        return GoodKind;
+    public String getGoodsName() {
+        return goodsName;
     }
 
-    public void setGoodKind(String goodKind) {
-        GoodKind = goodKind;
+    public void setGoodsName(String goodsName) {
+        this.goodsName = goodsName;
     }
 }

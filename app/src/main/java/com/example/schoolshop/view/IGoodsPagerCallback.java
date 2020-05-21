@@ -1,24 +1,22 @@
 package com.example.schoolshop.view;
 
+import com.example.schoolshop.Base.IBaseCallback;
 import com.example.schoolshop.entity.Goods;
 
-import java.util.ArrayList;
+import java.util.List;
 
-public interface IGoodsPagerCallback {
+public interface IGoodsPagerCallback extends IBaseCallback {
+
+    //取到title
+    String titleget();
     //数据加载回来
-    void onContentload(ArrayList<Goods>  content);
-    //加载中
-    void onLoading(String title);
-    //错误
-    void onError(String title);
-    //数据空
-    void onEmpty(String title);
+    void onContentload(List<Goods>  content);
 
     //下拉加载
-    void onLoadMoreLoaded(ArrayList<Goods>  content);
+    void onLoadMoreLoaded(List<Goods> content);
 
-    void onLoadMoreError(String title);
+    void onLoadMoreError();
 
-    void onLoadMoreEmpty(String title);
+    void onLoadMoreEmpty();
 
 }
