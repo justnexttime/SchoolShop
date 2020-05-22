@@ -65,7 +65,7 @@ public class HomePagerContentAdapter extends RecyclerView.Adapter<HomePagerConte
         public void setDate(Goods goods) {
             goodname.setText(goods.getGoodsName());
             Log.d("price", "setDate: "+goods.getGoodsPrice());
-            goodsprice.setText(String.valueOf(goods.getGoodsPrice()));
+            goodsprice.setText(String.format(itemView.getContext().getString(R.string.text_goods_price),goods.getGoodsPrice()));
             goodsprovider.setText(goods.getGoodsUser());
         }
     }
