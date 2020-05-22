@@ -4,13 +4,15 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:gravity="center_vertical"
-    android:padding="4dp">
+    android:padding="4dp"
+    android:background="#ffffff">
 
     <ImageView
         android:id="@+id/goods_img"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:padding="2dp"/>
+        android:padding="2dp"
+        android:src="@drawable/torcar"/>
 
     <LinearLayout
         android:orientation="vertical"
@@ -22,9 +24,11 @@
         <TextView
             android:id="@+id/goods_name"
             android:text="悠悠球"
+            android:layout_marginTop="2dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="16dp"
+            android:textStyle="bold"
             />
         <LinearLayout
             android:layout_width="match_parent"
@@ -37,6 +41,8 @@
                 android:layout_height="wrap_content"
                 android:text="价格:￥"
                 android:textSize="16dp"
+                android:background="@drawable/shap_tab_bg"
+                android:textColor="#ffffff"
                 />
 
             <TextView
@@ -45,6 +51,8 @@
                 android:layout_height="wrap_content"
                 android:textSize="16dp"
                 android:text="50"
+                android:textColor="#ffffff"
+                android:background="@drawable/shap_tab_bg"
                 />
 
         </LinearLayout>

@@ -1,5 +1,6 @@
 package com.example.schoolshop.fragment;
 
+import android.graphics.Rect;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -14,6 +15,7 @@ import com.example.schoolshop.view.IGoodsPagerCallback;
 
 import java.util.List;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import butterknife.BindView;
@@ -46,6 +48,13 @@ public class HomePagerFragment extends BaseFragment implements IGoodsPagerCallba
     protected void initView(View rootview) {
         //设置布局管理器
         mContentList.setLayoutManager(new LinearLayoutManager(getContext()));
+        mContentList.addItemDecoration(new RecyclerView.ItemDecoration() {
+            @Override
+            public void getItemOffsets(@NonNull Rect outRect, @NonNull View view, @NonNull RecyclerView parent, @NonNull RecyclerView.State state) {
+                outRect.top = 5;
+                outRect.bottom = 5;
+            }
+        });
         //创建适配器
         homePagerContentAdapter = new HomePagerContentAdapter();
         //

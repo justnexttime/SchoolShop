@@ -73,7 +73,7 @@ public class GoodsPagerPresenterImpl implements IGoodsPagerPresenter {
                         Log.d("resutlbytitle","result-->"+s);
                         List<Goods> gklist1 = new Gson().fromJson(s,new TypeToken<List<Goods>>(){}.getType());
 
-                        Log.d("resutlbytitle1", "onResponse: "+gklist1.get(0).getGoodsName());
+                        Log.d("resutlbytitle1", "onResponse: "+gklist1.get(0).getGoodsPrice());
                         //更新ui
                         handlerHomepageResult(gklist1,title);
                     } catch (IOException e) {
