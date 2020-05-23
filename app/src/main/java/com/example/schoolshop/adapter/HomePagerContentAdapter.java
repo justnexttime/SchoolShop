@@ -65,8 +65,33 @@ public class HomePagerContentAdapter extends RecyclerView.Adapter<HomePagerConte
         public void setDate(Goods goods) {
             goodname.setText(goods.getGoodsName());
             Log.d("price", "setDate: "+goods.getGoodsPrice());
+            switch(goods.getGoodsKind()){
+                case "文具"  :
+                    img.setImageResource(R.drawable.pen);
+                    break;
+                case "衣服"  :
+                    img.setImageResource(R.drawable.clothes);
+                    break;
+                case "生活用品"  :
+                    img.setImageResource(R.drawable.lifethings);
+                    break;
+                case "玩具"  :
+                    img.setImageResource(R.drawable.torcar);
+                    break;
+                case "电子产品"  :
+                    img.setImageResource(R.drawable.egoods);
+                    break;
+                case "其他"  :
+                    img.setImageResource(R.drawable.others);
+                    break;
+                default:
+                    break;
+
+            }
             goodsprice.setText(String.format(itemView.getContext().getString(R.string.text_goods_price),goods.getGoodsPrice()));
             goodsprovider.setText(goods.getGoodsUser());
+
+
         }
     }
 }

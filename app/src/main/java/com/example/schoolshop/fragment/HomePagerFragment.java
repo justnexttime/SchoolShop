@@ -4,6 +4,7 @@ import android.graphics.Rect;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
 import com.example.schoolshop.Base.BaseFragment;
 import com.example.schoolshop.R;
@@ -27,6 +28,8 @@ public class HomePagerFragment extends BaseFragment implements IGoodsPagerCallba
     private IGoodsPagerPresenter mgoodsPagerPresenter;
     private String title;
 
+    @BindView(R.id.home_pager_title)
+    public TextView goodstitle;
     @BindView(R.id.home_pager_list)
     public RecyclerView mContentList;
     private HomePagerContentAdapter homePagerContentAdapter;
@@ -73,7 +76,9 @@ public class HomePagerFragment extends BaseFragment implements IGoodsPagerCallba
         title = arguments.getString(KEY_HOME_PAGER_TITLE);
         Log.d("title","title---->"+ title);
         //加载title查到的数据
+
         if (mgoodsPagerPresenter!=null) {
+            goodstitle.setText(title);
             mgoodsPagerPresenter.getGoodsByTitle(title);
         }
     }
