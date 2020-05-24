@@ -20,6 +20,7 @@ import butterknife.ButterKnife;
 
 public class HomePagerContentAdapter extends RecyclerView.Adapter<HomePagerContentAdapter.InnerHolder> {
     private List<Goods> data = new ArrayList<>();
+    private OnListeItemClickListener mItemClickListener = null;
 
     @NonNull
     @Override
@@ -34,6 +35,16 @@ public class HomePagerContentAdapter extends RecyclerView.Adapter<HomePagerConte
         //设置数据
         Goods goods = data.get(position);
         holder.setDate(goods);
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mItemClickListener != null) {
+                    Goods item = data.get(position);
+                    mItemClickListener.Onitemclick(item);
+                }
+            }
+        });
+
     }
 
     @Override
@@ -44,6 +55,7 @@ public class HomePagerContentAdapter extends RecyclerView.Adapter<HomePagerConte
     public void setDate(List<Goods> content) {
         data.clear();
         data.addAll(content);
+
         notifyDataSetChanged();
     }
 
@@ -60,6 +72,7 @@ public class HomePagerContentAdapter extends RecyclerView.Adapter<HomePagerConte
         public InnerHolder(@NonNull View itemView) {
             super(itemView);
             ButterKnife.bind(this,itemView);
+
         }
 
         public void setDate(Goods goods) {
@@ -93,5 +106,14 @@ public class HomePagerContentAdapter extends RecyclerView.Adapter<HomePagerConte
 
 
         }
+    }
+    public void setOnListeItemClickListener(OnListeItemClickListener onListeItemClickListener){
+        this.mItemClickListener = onListeItemClickListener;
+
+    }
+
+
+    public interface OnListeItemClickListener{
+        void Onitemclick(Goods item);
     }
 }

@@ -13,6 +13,7 @@
         android:theme="@style/AppTheme">
 
         <activity android:name=".AdminMuenActivity"></activity>
+        <activity android:name=".GoodsActivity"></activity>
         <activity android:name=".UserBackActivity" />
         <activity android:name=".AdminLoginActivity" />
         <activity android:name=".CreatUserActivity" />

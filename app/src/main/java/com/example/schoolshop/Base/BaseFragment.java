@@ -51,6 +51,7 @@ public abstract class BaseFragment extends Fragment {
         initView(rootview);
         initPresenter();
         loadDate();
+        initListener();
         return rootview;
     }
 
@@ -110,6 +111,10 @@ public abstract class BaseFragment extends Fragment {
 
 
     protected void initView(View rootview) {
+    }
+
+    protected void initListener(){
+
     }
 
 

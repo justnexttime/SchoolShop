@@ -1,5 +1,6 @@
 package com.example.schoolshop.fragment;
 
+import android.content.Intent;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.util.Log;
@@ -7,11 +8,16 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.schoolshop.Base.BaseFragment;
+import com.example.schoolshop.GoodsActivity;
+import com.example.schoolshop.LoginActivity;
+import com.example.schoolshop.MeunActivity;
 import com.example.schoolshop.R;
+import com.example.schoolshop.UserBackActivity;
 import com.example.schoolshop.adapter.HomePagerContentAdapter;
 import com.example.schoolshop.controller.IGoodsPagerPresenter;
 import com.example.schoolshop.controller.impl.GoodsPagerPresenterImpl;
 import com.example.schoolshop.entity.Goods;
+import com.example.schoolshop.entity.User;
 import com.example.schoolshop.view.IGoodsPagerCallback;
 
 import java.util.List;
@@ -23,7 +29,7 @@ import butterknife.BindView;
 
 import static com.example.schoolshop.utils.Constants.KEY_HOME_PAGER_TITLE;
 
-public class HomePagerFragment extends BaseFragment implements IGoodsPagerCallback {
+public class HomePagerFragment extends BaseFragment implements IGoodsPagerCallback, HomePagerContentAdapter.OnListeItemClickListener {
 
     private IGoodsPagerPresenter mgoodsPagerPresenter;
     private String title;
@@ -62,6 +68,11 @@ public class HomePagerFragment extends BaseFragment implements IGoodsPagerCallba
         homePagerContentAdapter = new HomePagerContentAdapter();
         //
         mContentList.setAdapter(homePagerContentAdapter);
+    }
+
+    @Override
+    protected void initListener() {
+        homePagerContentAdapter.setOnListeItemClickListener(this);
     }
 
     @Override
@@ -132,5 +143,17 @@ public class HomePagerFragment extends BaseFragment implements IGoodsPagerCallba
         if (mgoodsPagerPresenter!=null) {
             mgoodsPagerPresenter.unregisterViewCallback(this);
         }
+    }
+
+    @Override
+    public void Onitemclick(Goods item) {
+        //列表内容
+        Log.d("item", "goods-->"+item.toString());
+        Intent intent = new Intent(getContext(), GoodsActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("goods",item);
+        intent.putExtras(bundle);
+        startActivity(intent);
+
     }
 }

@@ -10,9 +10,9 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
+import android.content.Intent;
+import android.util.Log;
 import android.view.MenuItem;
-import android.widget.FrameLayout;
-import android.widget.RadioGroup;
 import android.os.Bundle;
 
 import com.example.schoolshop.Base.BaseFragment;
@@ -29,14 +29,21 @@ public class MeunActivity  extends FragmentActivity {
     ShopcarFragment shopcarFragment;
     MeFragment meFragment;
     FragmentManager fm;
-   private Unbinder mbind;
+    private Unbinder mbind;
+    private String User;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_meun);
+        Intent intent = getIntent();
+        Bundle bundle = intent.getExtras();
+        User = bundle.getString("User");
         mbind = ButterKnife.bind(this);
         initFragment();
         initListend();
+        Log.d("nameuser", "name-----> "+User);
+
 
     }
 

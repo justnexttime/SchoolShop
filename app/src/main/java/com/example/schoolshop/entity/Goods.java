@@ -1,6 +1,8 @@
 package com.example.schoolshop.entity;
 
-public class Goods {
+import java.io.Serializable;
+
+public class Goods implements Serializable {
 
     /**
      * goodsImg : 1

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">SchoolShop</string>
+    <string name="app_name">校园小商品</string>
     <string name="text_goods_price">价格:￥%1$d</string>
-
+    <string name="app_User_name"></string>
 </resources>

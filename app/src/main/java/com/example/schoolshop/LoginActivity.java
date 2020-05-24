@@ -116,6 +116,9 @@ public class LoginActivity extends AppCompatActivity {
                         if(msg.obj.equals("登陆成功")) {
                             Toast.makeText(LoginActivity.this,"登录成功",Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(LoginActivity.this,MeunActivity.class);
+                            Bundle bundle = new Bundle();
+                            bundle.putCharSequence("User",etuser.getText().toString());
+                            intent.putExtras(bundle);
                             startActivity(intent);
                             finish();
 
