@@ -1,8 +1,6 @@
 package com.example.schoolshop;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -30,7 +28,7 @@ public class MeunActivity  extends FragmentActivity {
     MeFragment meFragment;
     FragmentManager fm;
     private Unbinder mbind;
-    private String User;
+    private String UserName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,11 +36,11 @@ public class MeunActivity  extends FragmentActivity {
         setContentView(R.layout.activity_meun);
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
-        User = bundle.getString("User");
+        UserName = bundle.getString("User");
         mbind = ButterKnife.bind(this);
         initFragment();
         initListend();
-        Log.d("nameuser", "name-----> "+User);
+        Log.d("nameuser", "name-----> "+UserName);
 
 
     }
@@ -56,9 +54,9 @@ public class MeunActivity  extends FragmentActivity {
     }
 
     private void initFragment() {
-        homeFragment = new HomeFragment();
-        shopcarFragment = new ShopcarFragment();
-        meFragment  = new MeFragment();
+        homeFragment = new HomeFragment(UserName);
+        shopcarFragment = new ShopcarFragment(UserName);
+        meFragment  = new MeFragment(UserName);
         fm = getSupportFragmentManager();
         switchFragment(homeFragment);
     }

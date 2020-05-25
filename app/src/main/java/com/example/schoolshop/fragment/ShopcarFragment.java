@@ -6,6 +6,12 @@ import com.example.schoolshop.Base.BaseFragment;
 import com.example.schoolshop.R;
 
 public class ShopcarFragment extends BaseFragment {
+    public String UserName;
+
+    public ShopcarFragment(String user) {
+        this.UserName = user;
+    }
+
     @Override
     protected int getRootViewId() {
         return R.layout.fragment_shopcar;

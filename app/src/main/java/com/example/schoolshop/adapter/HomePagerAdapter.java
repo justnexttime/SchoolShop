@@ -14,8 +14,10 @@ import androidx.fragment.app.FragmentPagerAdapter;
 public class HomePagerAdapter extends FragmentPagerAdapter {
     private  ArrayList<String>  gklist1 = new ArrayList<String>();
     private  HomePagerFragment homePagerFragment;
-    public HomePagerAdapter(FragmentManager fm) {
+    private String UserName;
+    public HomePagerAdapter(FragmentManager fm, String userName) {
         super(fm);
+        this.UserName = userName;
     }
 
     @Nullable
@@ -27,7 +29,7 @@ public class HomePagerAdapter extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int position) {
         String title = gklist1.get(position);
-        homePagerFragment = HomePagerFragment.newInstance(title);
+        homePagerFragment = HomePagerFragment.newInstance(title,UserName);
 
         return homePagerFragment;
     }

@@ -39,11 +39,13 @@ public class HomePagerFragment extends BaseFragment implements IGoodsPagerCallba
     @BindView(R.id.home_pager_list)
     public RecyclerView mContentList;
     private HomePagerContentAdapter homePagerContentAdapter;
+    private String UserName;
 
-    public static HomePagerFragment newInstance(String title) {
+    public static HomePagerFragment newInstance(String title,String username) {
         HomePagerFragment homePagerFragment = new HomePagerFragment();
         Bundle bundle = new Bundle();
         bundle.putString(KEY_HOME_PAGER_TITLE,title);
+        bundle.putString("User",username);
         homePagerFragment.setArguments(bundle);
         return homePagerFragment;
     }
@@ -87,7 +89,7 @@ public class HomePagerFragment extends BaseFragment implements IGoodsPagerCallba
         title = arguments.getString(KEY_HOME_PAGER_TITLE);
         Log.d("title","title---->"+ title);
         //加载title查到的数据
-
+        UserName = arguments.getString("User");
         if (mgoodsPagerPresenter!=null) {
             goodstitle.setText(title);
             mgoodsPagerPresenter.getGoodsByTitle(title);
@@ -152,6 +154,7 @@ public class HomePagerFragment extends BaseFragment implements IGoodsPagerCallba
         Intent intent = new Intent(getContext(), GoodsActivity.class);
         Bundle bundle = new Bundle();
         bundle.putSerializable("goods",item);
+        bundle.putString("User", UserName);
         intent.putExtras(bundle);
         startActivity(intent);
 

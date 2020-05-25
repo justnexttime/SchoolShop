@@ -2,4 +2,6 @@
     <string name="app_name">校园小商品</string>
     <string name="text_goods_price">价格:￥%1$d</string>
     <string name="app_User_name"></string>
+    <string name="text_user_money">余额:￥%1$d</string>
+    <string name="text_total_money">总计:￥%1$d</string>
 </resources>

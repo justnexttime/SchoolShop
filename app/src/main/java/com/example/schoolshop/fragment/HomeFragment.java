@@ -28,6 +28,12 @@ public class HomeFragment extends BaseFragment implements IHomeCallback {
     ViewPager homepager;
     private  IHomePresenter mhomePresenterimpl;
     private  HomePagerAdapter homePagerAdapter;
+
+    public String UserName;
+    public HomeFragment(String user) {
+       this.UserName = user;
+    }
+
     @Override
     protected int getRootViewId() {
 
@@ -43,7 +49,7 @@ public class HomeFragment extends BaseFragment implements IHomeCallback {
     protected void initView(View rootview) {
         mtabLayout.setupWithViewPager(homepager);
         //给viewpager设置适配器
-         homePagerAdapter = new HomePagerAdapter(getChildFragmentManager());
+         homePagerAdapter = new HomePagerAdapter(getChildFragmentManager(),UserName);
          homepager.setAdapter(homePagerAdapter);
     }
 
